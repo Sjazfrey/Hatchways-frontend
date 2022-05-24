@@ -1,0 +1,81 @@
+.container {
+    overflow-y: auto;
+    width: 900px;
+    height: 85vh;
+    border: 30px solid rgb(235, 232, 232);
+    border-radius: 10px;
+    margin-top: 58px;
+   
+    background-color: white;
+    margin-left: 18%;
+    font-family: Raleway; 
+}
+body::-webkit-scrollbar{
+    overflow: hidden;
+    overflow-y: hidden;
+}
+img {
+    float: left;
+    width: 140px;
+    border-radius: 50%;
+    margin-top: 10px;
+    border: 2px solid lightgrey;
+    margin-left: 25px;
+}
+.title {
+    margin-left: 203px;
+    margin-bottom: 3px;    
+}
+.fname {
+    margin-left: 190px; 
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: Raleway;   
+}
+.email {
+    padding-bottom: 8px;
+    font-size: 15px;
+}
+.company {
+    padding-bottom: 8px;
+    font-size: 15px;
+}
+.skill{
+    padding-bottom: 8px;
+    font-size: 15px;
+}
+.average {
+    padding-bottom: 20px;
+    font-size: 15px;
+}
+.studinfo {
+    border: none;
+    outline: none; 
+    font-size: 20px;
+    font: lightgrey;  
+}
+.searchtag {
+    border: none;
+    outline: none;
+    margin-top: 5px;
+    font-size: 20px;
+    font: lightgrey;
+}
+.taginfo {
+    background-color: lightgrey;
+    padding: 7px 10px 10px 10px;
+    margin-right: 10px; 
+    border-radius: 5px;      
+}
+input.tag-info {
+    margin-top: 20px;
+}
+.taghr {
+   width: 120px;
+   margin-bottom: -50px;
+}
+.hrname {
+    margin-bottom: -10px;
+}

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Api from "./Components/api/api";
+import Main from "./Components/main/main";
 
 function App() {
   return (
     <div>
-      <Api />
+      <Main />
     </div>
   );
 }

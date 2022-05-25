@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Search from "../search/search";
-import "./api.css";
+import "./main.css";
 import Grades from "../grades/grades";
 import Tag from "../tag/tag";
 
-function Api() {
+function Main() {
   const [studentInfo, setStudentInfo] = useState([]);
   const [name, setName] = useState("");
   const [tag, setTag] = useState("");
@@ -30,21 +30,45 @@ function Api() {
     setStudentInfo(students);
     setFiltered(students);
 
-    console.log(info);
   }
   useEffect(() => {
     fetchURL("https://api.hatchways.io/assessment/students");
   }, []);
 
   useEffect(() => {
-    const filteredStudent = studentInfo.filter(
+      
+    let tagSearch = []
+    if (tag){
+      const filteredStudent = studentInfo.filter(
+        (student) =>
+          student.firstName.toLowerCase().includes(fullName.toLowerCase()) ||
+          student.lastName.toLowerCase().includes(fullName.toLowerCase()) 
+         
+      );
+       filteredStudent.forEach(student => {
+        let studentAdded = false;
+        student.tags.forEach(studentTag => {
+          
+          if(studentTag.toLowerCase().includes(tag)&& studentAdded===false){
+           tagSearch.push(student)
+            studentAdded = true;
+          }
+          
+        })
+      })
+      setFiltered([...tagSearch])
+    }
+    else {   
+      const filteredStudent = studentInfo.filter(
       (student) =>
         student.firstName.toLowerCase().includes(fullName.toLowerCase()) ||
-        student.lastName.toLowerCase().includes(fullName.toLowerCase()) ||
-        student.tags.includes(tag) ||
-        !tag
+        student.lastName.toLowerCase().includes(fullName.toLowerCase()) 
+        
     );
-    setFiltered(filteredStudent);
+      setFiltered([...filteredStudent]);
+    }
+    
+
   }, [fullName, tag]);
 
   function addTag(tag, index) {
@@ -57,7 +81,7 @@ function Api() {
 
   return (
     <div className="container">
-      {/* communicate with api.jsx */}
+      {/* communicate with main.jsx */}
       <div>
         <Search setFullName={setFullName} setTag={setTag} />
       </div>
@@ -106,4 +130,4 @@ function Api() {
   );
 }
 
-export default Api;
+export default Main;

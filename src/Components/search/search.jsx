@@ -9,7 +9,7 @@ function Search({ setFullName, setTag }) {
         placeholder="Search by Name"
         onChange={(event) => {
           setFullName(event.target.value);
-          setTag(event.target.value);
+          
         }}
       />
       <br />{" "}
